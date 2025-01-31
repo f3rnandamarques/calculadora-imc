@@ -5,8 +5,8 @@ form.addEventListener('submit', function (event) {
     const inputPeso = event.target.querySelector('#peso')
     const inputAltura = event.target.querySelector('#altura')
 
-    const peso = Number(inputPeso.value)
-    const altura = Number(inputAltura.value)
+    const peso = Number(inputPeso.value.replace(',', '.'))
+    const altura = Number(inputAltura.value.replace(',', '.'))
 
     if (!peso) {
         setResultado('Peso inválido', false)
@@ -25,16 +25,6 @@ form.addEventListener('submit', function (event) {
 
     setResultado(mensagem, true)
 })
-
-/*
-IMC                 Resultado
-Abaixo do peso      Menos que 18,5      
-Peso normal         Entre 18,5 e 24,9   
-Sobrepeso           Entre 25 e 29       
-Entre 30 e 34,9     Obesidade grau 1
-Entre 35 e 39,9     Obesidade grau 2
-Mais do que 40      Obesidade grau 3
- */
 
 function getNivel(imc) {
     const nivel = ['Abaixo do peso', 'Peso normal', 'Sobrepeso', 'Obesidade grau 1', 'Obesidade grau 2', 'Obesidade grau 3']
